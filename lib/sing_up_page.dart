@@ -11,93 +11,96 @@ class sing_upPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("SignUp page"),
       ),
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 500, right: 700, top: 200),
-            child: TextField(
-              decoration: InputDecoration(
-                  label: Text('First name'),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(7)))),
-            ),
+      body: Center(
+        child: SizedBox(
+          width: 800,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          label: Text('First name'),
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(7)))),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          label: Text("Last Name"),
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(7)))),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    label: Text("Email"),
+                    hintText: "example@gmail.com",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7)))),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    label: Text("phone num"),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7)))),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    label: Text("password"),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7)))),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    label: Text("conform password"),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7)))),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              FilledButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Sign_up_message()));
+                  },
+                  child: const Text("SignUp")),
+              IconButton(
+                  onPressed: () {
+                    showDatePicker(
+                        context: context,
+                        firstDate: DateTime(2000),
+                        lastDate: DateTime(2100));
+                  },
+                  icon: Icon(Icons.calendar_month))
+            ],
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 500, right: 700),
-            child: TextField(
-              decoration: InputDecoration(
-                  label: Text("Last Name"),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(7)))),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 500, right: 700),
-            child: TextField(
-              decoration: InputDecoration(
-                  label: Text("Email"),
-                  hintText: "example@gmail.com",
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(7)))),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 500, right: 700),
-            child: TextField(
-              decoration: InputDecoration(
-                  label: Text("phone num"),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(7)))),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 500, right: 700),
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                  label: Text("password"),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(7)))),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 500, right: 700),
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                  label: Text("conform password"),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(7)))),
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: FilledButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Sign_up_message()));
-                },
-                child: const Text("SignUp")),
-          )
-        ],
+        ),
       ),
     );
   }
